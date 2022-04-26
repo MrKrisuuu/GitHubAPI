@@ -10,6 +10,7 @@ Z racji tego, że podobnie zadanie miałem na studiach, to od razu wiedziałem c
 - https://api.github.com/users/MrKrisuuu
 - https://api.github.com/repos/MrKrisuuu/GeneralizedTicTacToe/languages
 - https://api.github.com/users/MrKrisuuu/repos
+
 W URL wystarczy zmienić nazwę użytkownika/projektu co jest bardzo proste. Skoro dane są podane w JSON to jest bardzo łatwo na nich operować, bo są do tego odpowiednie biblioteki (w Pythonie jest jeszcze łatwiej, bo są to po prostu listy i słowniki). Pobieram nazwę użytkownika za pomocą bardzo prostego formularza (chciałem żeby było proste połączenie z Frontendem), który potem można ulepszać. Jeśli chodzi o pobieranie i przetwarzanie danych, to mogą one rzucać wyjątki (takie jak NullPointerException). Stwierdziałem, że lepsze jest wyświetlenie niczego, niż wywalenie całego programu, dlatego obudowałem pewne fragmenty kodu w try-catch. Wyświeltam dane za pomocą prostego pliku html, który Frontend również może potem ulepszać, aby dane mogły się ładniej prezenować na stronie.
 
 Ogółem bardzo przyjemne zadanie, które nie sprawiło większych problemów.
