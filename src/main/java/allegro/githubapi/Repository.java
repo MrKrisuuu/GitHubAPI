@@ -16,18 +16,31 @@ public class Repository {
     }
 
     public void updateLanguages(){
-        String url = "https://api.github.com/repos/" + this.owner + "/" + this.name + "/languages";
         HashMap<String, Integer> result = new HashMap<String, Integer>();
-        JSONReaderFromURL reader = new JSONReaderFromURL();
-        JSONObject json = reader.readObjectFromURL(url);
+        try{
+            String url = "https://api.github.com/repos/" + this.owner + "/" + this.name + "/languages";
+            JSONReaderFromURL reader = new JSONReaderFromURL();
+            JSONObject json = reader.readObjectFromURL(url);
 
-        String[] keys = JSONObject.getNames(json);
-        for (String key : keys) {
-            int value = json.getInt(key);
-            result.put(key, value);
+            String[] keys = JSONObject.getNames(json);
+
+            for (String key : keys) {
+                int value = json.getInt(key);
+                result.put(key, value);
+            }
+
+            this.languages = result;
+        } catch(NullPointerException e){
+            /*
+            Jeden w wielu możliwych do wyłapania błędów.
+            Nic się nie dzieje.
+            Po prostu dane repozytorium nie ma języków.
+             */
+            this.languages = result;
+        } catch(Exception e){
+            e.printStackTrace();
+            this.languages = result;
         }
-
-        this.languages = result;
     }
 
     public HashMap<String, Integer> getLanguages(){

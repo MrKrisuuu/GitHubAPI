@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'Repos: ' + ${result.getRepositories()}"></p>
+<p th:text="'Login: ' + ${result.getLogin()}"></p>
+<p th:text="'Name: ' + ${result.getName()}"></p>
+<p th:text="'Bio: ' + ${result.getBio()}"></p>
+<p th:text="'Languages: ' + ${result.getLanguages()}"></p>
+<a href="/form">Submit another form</a>
+</body>
+</html>

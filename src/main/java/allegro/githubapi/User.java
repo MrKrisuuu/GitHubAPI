@@ -13,37 +13,48 @@ public class User {
     private UserData data;
     List<Repository> repositories;
 
-    public User(String username){
-        this.username = username;
+    public User(UserResult user){
+        this.username = user.getUsername();
         this.updateData();
         this.updateRepositories();
     }
 
     public void updateData(){
-        String url = "https://api.github.com/users/" + this.username;
-        JSONReaderFromURL reader = new JSONReaderFromURL();
-        JSONObject json = reader.readObjectFromURL(url);
+        try{
+            String url = "https://api.github.com/users/" + this.username;
+            JSONReaderFromURL reader = new JSONReaderFromURL();
+            JSONObject json = reader.readObjectFromURL(url);
 
-        String login = json.getString("login");
-        String name = json.getString("name");
-        Object bioToCheck = json.get("bio");
-        String bio = bioToCheck.toString();
+            String login = json.getString("login");
+            String name = json.getString("name");
+            Object bioToCheck = json.get("bio");
+            String bio = bioToCheck.toString();
 
-        this.data = new UserData(login, name, bio);
+            this.data = new UserData(login, name, bio);
+        } catch (Exception e){
+            e.printStackTrace();
+            this.data = new UserData("", "", "");
+        }
     }
 
     public void updateRepositories(){
-        String url = "https://api.github.com/users/" + this.username + "/repos";
         List<Repository> result = new ArrayList<Repository>();
-        JSONReaderFromURL reader = new JSONReaderFromURL();
-        JSONArray json = reader.readArrayFromURL(url);
+        try{
+            String url = "https://api.github.com/users/" + this.username + "/repos";
+            JSONReaderFromURL reader = new JSONReaderFromURL();
+            JSONArray json = reader.readArrayFromURL(url);
 
-        for (int i=0; i<json.length(); i++){
-            String name = json.getJSONObject(i).getString("name");
-            result.add(new Repository(this.username, name));
+            for (int i=0; i<json.length(); i++){
+                String name = json.getJSONObject(i).getString("name");
+                result.add(new Repository(this.username, name));
+            }
+
+            this.repositories = result;
+        } catch (Exception e){
+            e.printStackTrace();
+            this.repositories = result;
         }
 
-        this.repositories = result;
     }
 
     public UserData getData(){

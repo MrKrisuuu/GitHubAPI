@@ -10,14 +10,11 @@ import java.nio.charset.StandardCharsets;
 public class JSONReaderFromURL {
 
     public JSONObject readObjectFromURL(String url){
-        InputStream stream;
-        BufferedReader reader;
-        String jsonText;
         JSONObject json = null;
         try {
-            stream = new URL(url).openStream();
-            reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-            jsonText = readText(reader);
+            InputStream stream = new URL(url).openStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            String jsonText = readText(reader);
             json = new JSONObject(jsonText);
         } catch(Exception e){
             e.printStackTrace();
@@ -26,14 +23,11 @@ public class JSONReaderFromURL {
     }
 
     public JSONArray readArrayFromURL(String url){
-        InputStream stream;
-        BufferedReader reader;
-        String jsonText;
         JSONArray json = null;
         try {
-            stream = new URL(url).openStream();
-            reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-            jsonText = readText(reader);
+            InputStream stream = new URL(url).openStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            String jsonText = readText(reader);
             json = new JSONArray(jsonText);
         } catch(Exception e){
             e.printStackTrace();
@@ -41,12 +35,12 @@ public class JSONReaderFromURL {
         return json;
     }
 
-    private String readText(Reader rd) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        int cp;
-        while ((cp = rd.read()) != -1) {
-            sb.append((char) cp);
+    private String readText(Reader reader) throws IOException {
+        StringBuilder result = new StringBuilder();
+        int c;
+        while ((c = reader.read()) != -1) {
+            result.append((char) c);
         }
-        return sb.toString();
+        return result.toString();
     }
 }
