@@ -26,12 +26,18 @@ public class User {
             JSONReaderFromURL reader = new JSONReaderFromURL();
             JSONObject json = reader.readObjectFromURL(url);
 
-            String login = json.getString("login");
-            String name = json.getString("name");
-            Object bioToCheck = json.get("bio");
-            String bio = bioToCheck.toString();
+            if (json.has("message") && json.getString("message").equals("Not Found")){
+                this.data = new UserData("", "", "");
+            } else {
+                Object loginToCheck = json.get("login");
+                String login = loginToCheck.toString();
+                Object nameToCheck = json.get("name");
+                String name = nameToCheck.toString();
+                Object bioToCheck = json.get("bio");
+                String bio = bioToCheck.toString();
+                this.data = new UserData(login, name, bio);
+            }
 
-            this.data = new UserData(login, name, bio);
         } catch (Exception e){
             e.printStackTrace();
             this.data = new UserData("", "", "");

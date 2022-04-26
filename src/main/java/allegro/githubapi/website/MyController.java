@@ -21,7 +21,16 @@ public class MyController {
 
     @PostMapping("/results")
     public String usernameResult(@ModelAttribute UserResult user, Model model){
-        Result result = new Result(new User(user));
+        User resultUser = new User(user);
+        /*
+        Co jeśli nie znajdzie użytkownika
+         */
+        if (resultUser.getData().getLogin().equals("")){
+
+            model.addAttribute("errorName", "User not found");
+            return "error";
+        }
+        Result result = new Result(resultUser);
         model.addAttribute("result", result);
         return "result";
     }
