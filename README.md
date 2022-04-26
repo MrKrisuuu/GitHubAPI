@@ -2,7 +2,7 @@
 
 Email użyty w rekrutacji: ksurowka57@gmail.com
 
-Z racji tego, iż robiłem podobne API na zajęcia na studia w Pythonnie (https://github.com/MrKrisuuu/PythonAPIExample) to postanowiłem zrobić API tym razem w Javie. Zadanie zostało zrobione z użyciem frameworka Spring Boot. Stworzyłem projket Maven przy pomocy Spring Initializr. 
+Z racji tego, iż robiłem podobne API na zajęcia na studia w Pythonie (https://github.com/MrKrisuuu/PythonAPIExample) to postanowiłem zrobić API tym razem w Javie. Zadanie zostało zrobione z użyciem frameworka Spring Boot. Stworzyłem projket Maven przy pomocy Spring Initializr. 
 
 Projekt należy pobrać do IDE (ja używałem IntelliJ) i go zbudować. Następnie należy go odpalić i postawi się serwer na localhost:8080. Wystarczy użyć przeglądarki (http://localhost:8080/) i ukaże się na prosta strona, gdzie należy wpisać nazwę użytkownika i kliknąć Submit. Zostaniemy przekierowani do innej strony z wynikami. Możemy kliknąć przycisk "Submit another form", aby powtórzyć proces.
 
