@@ -1,4 +1,4 @@
-package allegro.githubapi;
+package allegro.githubapi.results;
 
 public class UserResult {
     private String username;

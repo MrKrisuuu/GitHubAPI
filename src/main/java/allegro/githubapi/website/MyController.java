@@ -1,5 +1,8 @@
-package allegro.githubapi;
+package allegro.githubapi.website;
 
+import allegro.githubapi.results.Result;
+import allegro.githubapi.data.User;
+import allegro.githubapi.results.UserResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,12 +1,13 @@
-package allegro.githubapi;
+package allegro.githubapi.data;
 
+import allegro.githubapi.JSONHealper.JSONReaderFromURL;
+import allegro.githubapi.results.UserResult;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class User {
     private String username;

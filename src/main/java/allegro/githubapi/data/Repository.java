@@ -1,6 +1,8 @@
-package allegro.githubapi;
+package allegro.githubapi.data;
 
 import java.util.HashMap;
+
+import allegro.githubapi.JSONHealper.JSONReaderFromURL;
 import org.json.*;
 
 public class Repository {
