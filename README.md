@@ -1,4 +1,4 @@
-# allegro-summer-experience-2022
+# JavaRESTAPI
 
 Email użyty w rekrutacji: ksurowka57@gmail.com
 
