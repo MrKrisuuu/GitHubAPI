@@ -1,7 +1,7 @@
-package allegro.githubapi.data;
+package example.githubapi.data;
 
-import allegro.githubapi.JSONHealper.JSONReaderFromURL;
-import allegro.githubapi.results.UserResult;
+import example.githubapi.JSONHealper.JSONReaderFromURL;
+import example.githubapi.results.UserResult;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

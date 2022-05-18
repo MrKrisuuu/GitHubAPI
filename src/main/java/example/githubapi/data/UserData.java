@@ -1,4 +1,4 @@
-package allegro.githubapi.data;
+package example.githubapi.data;
 
 public class UserData {
     private String login;

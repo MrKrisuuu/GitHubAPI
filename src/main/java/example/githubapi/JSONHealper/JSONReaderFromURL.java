@@ -1,4 +1,4 @@
-package allegro.githubapi.JSONHealper;
+package example.githubapi.JSONHealper;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package allegro.githubapi;
+package example.githubapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

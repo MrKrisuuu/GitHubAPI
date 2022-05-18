@@ -1,7 +1,7 @@
-package allegro.githubapi.results;
+package example.githubapi.results;
 
-import allegro.githubapi.data.Repository;
-import allegro.githubapi.data.User;
+import example.githubapi.data.Repository;
+import example.githubapi.data.User;
 
 import java.util.HashMap;
 import java.util.List;
