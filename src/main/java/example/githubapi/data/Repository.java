@@ -33,11 +33,6 @@ public class Repository {
 
             this.languages = result;
         } catch(NullPointerException e){
-            /*
-            Jeden w wielu możliwych do wyłapania błędów.
-            Nic się nie dzieje.
-            Po prostu dane repozytorium nie ma języków.
-             */
             this.languages = result;
         } catch(Exception e){
             e.printStackTrace();

@@ -1,7 +1,6 @@
 package example.githubapi.data;
 
 import example.githubapi.JSONHealper.JSONReaderFromURL;
-import example.githubapi.results.UserResult;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -14,8 +13,8 @@ public class User {
     private UserData data;
     List<Repository> repositories;
 
-    public User(UserResult user){
-        this.username = user.getUsername();
+    public User(String username){
+        this.username = username;
         this.updateData();
         this.updateRepositories();
     }

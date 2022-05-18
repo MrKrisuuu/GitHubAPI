@@ -1,37 +1,17 @@
 package example.githubapi.website;
 
-import example.githubapi.results.Result;
 import example.githubapi.data.User;
-import example.githubapi.results.UserResult;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class MyController {
 
-    @GetMapping("")
-    public String usernameForm(Model model){
-        model.addAttribute("userResult", new UserResult());
-        return "form";
-    }
 
-
-    @PostMapping("/results")
-    public String usernameResult(@ModelAttribute UserResult user, Model model){
-        User resultUser = new User(user);
-        /*
-        Co jeśli nie znajdzie użytkownika
-         */
-        if (resultUser.getData().getLogin().equals("")){
-
-            model.addAttribute("errorName", "User not found");
-            return "error";
-        }
-        Result result = new Result(resultUser);
-        model.addAttribute("result", result);
-        return "result";
+    @GetMapping("/{name}")
+    public ResultDTO usernameResult(@PathVariable(value="name") String name){
+        User resultUser = new User(name);
+        return new ResultDTO(resultUser);
     }
 }
